@@ -44,14 +44,13 @@ describe('filter tests', () => {
   });
 
   it('should remove specific array from object', () => {
-    let human = {name: 'yung-jhun', songs:[['cool song 1', 50], ['cool song 2', 100],['cool song 3', 90]]}
-    let tracker = {person: human}
-    let saying = 'cool song 2'
+    let human = {name: 'yung-jhun', songs:[['cool song 1', 50], ['cool song 2', 100],['cool song 3', 90]]};
+    let tracker = {person: human};
+    let saying = 'cool song 2';
 
-    let human.songs = tracker.filter(function (song, i) {
-      console.log(this)
-      return song[i] !== saying;
-    })
+    human.songs = human.songs.filter(song =>
+      !song.includes(saying)
+    )
 
     expect(human.songs).to.deep.equal([['cool song 1', 50],['cool song 3', 90]])
   });
