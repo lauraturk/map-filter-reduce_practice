@@ -2,11 +2,14 @@ require('mocha')
 require('locus')
 const expect = require('chai').expect
 
-describe('map tests', () => {
+describe('reduce tests', () => {
 
   it('should add all the numbes together', () => {
     let numbers = [32, 1, 21, 5, 81, 333]
-    // your code goes here
+
+    let result = numbers.reduce((accuNum, secondNum) => {
+      return accuNum + secondNum
+    });
 
     expect(result).to.equal(473)
   })
@@ -14,19 +17,35 @@ describe('map tests', () => {
   it('should subtract all the numbers', () => {
     let numbers = [28, 12, 38, 1, 91]
 
-    expect(results).to.equal(-170)
+    let results = numbers.reduce((accuNum, secondNum) => {
+      return accuNum - secondNum
+    });
+
+    expect(results).to.equal(-114)
   })
 
   it('should multiply a list of number', ()=> {
     let numbers = [2, 3, 5, 7]
-      //initial value is 1
-      //Your code goes here
+
+    let results = numbers.reduce((accuNum, secondNum) => {
+      return accuNum * secondNum
+    }, 1);
+
     expect(results).to.equal(210)
   })
-  it.skip('subtrack the smallest number' , () => {
+  it('subtract the smallest number' , () => {
     let elements = [[8, 5, 3], [1, 9, 11], [4, 7, 2], [19, 34, 6]]
-    // initial value is going to be 100
-    // your code goes here
+    let trashbin = []
+
+    let results = elements.forEach(elementArray => {
+      // eval(locus)
+      elementArray.reduce((accuNum, nextNum) => {
+        accuNum < nextNum ? elementArray[accuNum] 
+        console.log(accuNum)
+        // 100 - smallNum
+      })
+    })
+
     expect(results).to.equal(88)
   })
 

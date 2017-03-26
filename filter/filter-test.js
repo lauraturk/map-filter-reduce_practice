@@ -5,14 +5,20 @@ describe('filter tests', () => {
 
   it('should pick the even numbers ', () => {
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    // your code goes here
+
+    let results = numbers.filter(function (num){
+      return num % 2 === 0;
+    })
+
     expect(results).to.deep.equal([2, 4, 6, 8, 10])
   });
 
   it('should pick the odd numbers ', () => {
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    // your code goes here
+    let results = numbers.filter(function (num) {
+      return num % 2 !== 0;
+    })
 
     expect(results).to.deep.equal([1, 3, 5, 7, 9])
   });
@@ -20,7 +26,9 @@ describe('filter tests', () => {
   it('should pick wordfs with three letteres ', () => {
     let words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
 
-    // your code goes here
+    let results = words.filter(word =>
+      word.length === 3
+    );
 
     expect(results).to.deep.equal(["bad", "cat", "dog", "red"])
   });
@@ -28,7 +36,9 @@ describe('filter tests', () => {
   it('should pick arrays only', () => {
     let elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
 
-    // your code goes here
+    let results = elements.filter(element =>
+      Array.isArray(element)
+    );
 
     expect(results).to.deep.equal([["dog"], [56, 3, 8]])
   });
@@ -38,7 +48,10 @@ describe('filter tests', () => {
     let tracker = {person: human}
     let saying = 'cool song 2'
 
-    // your code goes here.
+    let human.songs = tracker.filter(function (song, i) {
+      console.log(this)
+      return song[i] !== saying;
+    })
 
     expect(human.songs).to.deep.equal([['cool song 1', 50],['cool song 3', 90]])
   });
