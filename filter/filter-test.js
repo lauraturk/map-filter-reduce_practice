@@ -63,8 +63,10 @@ describe('filter tests', () => {
                     {user:'meeka', message: 'adfasuhlkj'},
                     {user: 'robbie', message: 'im super loud'}]
 
-    // your code goes here
 
+    let results = messages.filter(obj =>
+      obj.message.includes(userString)
+    )
     expect(results).to.deep.equal([{user: 'alter-nate', message:'suh kewl'},
                                    {user:'meeka', message: 'adfasuhlkj'},
                                    {user: 'robbie', message: 'im super loud'}])
@@ -79,7 +81,9 @@ describe('filter tests', () => {
 
     let ids = ['00112', '90215', '12309']
 
-    // your code goes here
+    let results = data.filter(obj => {
+      return ids.includes(obj.id)
+    })
 
     expect(results).to.deep.equal([{ account: 'person 1', id: '00112'},
                                    { account: 'person 3', id: '12309'},

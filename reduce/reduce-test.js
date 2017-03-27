@@ -33,27 +33,29 @@ describe('reduce tests', () => {
 
     expect(results).to.equal(210)
   })
-  it('subtract the smallest number' , () => {
+  it.skip('subtract the smallest number' , () => {
     let elements = [[8, 5, 3], [1, 9, 11], [4, 7, 2], [19, 34, 6]]
-    let trashbin = []
 
-    let results = elements.forEach(elementArray => {
-      // eval(locus)
-      elementArray.reduce((accuNum, nextNum) => {
-        accuNum < nextNum ? elementArray[accuNum] 
-        console.log(accuNum)
-        // 100 - smallNum
-      })
+    var results = elements.forEach(arr => {
+      arr.reduce((total, nextNum) =>
+       -(arr[total] < arr[nextNum])
+      ), 100;
+      return results
     })
 
     expect(results).to.equal(88)
   })
 
-  it.skip('all second values add together', () => {
+  it('all second values add together', () => {
     let elements = [["a", 1], ["b", 9], ["c", 21]]
-    // initial value is 10
-    // your code goes here
-    expect(results).to.equal(31);
+
+    // let results = arr =>
+    //   arr.reduce((acc, val) =>
+    //     acc.concat(Number.isIntegar(val) ? val += val : val)
+    //   )
+    //
+    //
+    // expect(results).to.equal(31);
   });
 
   it('divide 560 by a gang of numbers ', () => {

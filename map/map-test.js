@@ -66,11 +66,6 @@ describe('map tests', () => {
   it('should transform a large object into an array of objects', () => {
     let largeObject = {key1: {name: 'jhun', location: 'CA'}, key2: {name: 'brenna', location: 'MN'}, key3:{name: 'louisa', location: 'CO'}}
 
-    let keysArray = Object.keys(largeObject)
-    console.log(keysArray.values(largeObject))
-    let array = keysArray.map(function (obj, i){
-      let {id, name, location} = obj[i]
-      console.log(array);
 
     });
 
