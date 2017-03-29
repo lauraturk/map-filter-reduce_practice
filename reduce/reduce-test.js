@@ -33,15 +33,18 @@ describe('reduce tests', () => {
 
     expect(results).to.equal(210)
   })
-  it.skip('subtract the smallest number' , () => {
+  it('subtract the smallest number' , () => {
     let elements = [[8, 5, 3], [1, 9, 11], [4, 7, 2], [19, 34, 6]]
 
-    var results = elements.forEach(arr => {
-      arr.reduce((total, nextNum) =>
-       -(arr[total] < arr[nextNum])
-      ), 100;
-      return results
-    })
+    function compareNumbers(a, b){
+      return a - b
+    }
+
+    let results = elements.reduce((acc, el) => {
+      let holder = el.sort(compareNumbers).shift();
+      acc -= holder;
+      return acc;
+    }, 100)
 
     expect(results).to.equal(88)
   })
@@ -53,9 +56,9 @@ describe('reduce tests', () => {
     //   arr.reduce((acc, val) =>
     //     acc.concat(Number.isIntegar(val) ? val += val : val)
     //   )
-    //
-    //
-    // expect(results).to.equal(31);
+
+
+    expect(results).to.equal(31);
   });
 
   it('divide 560 by a gang of numbers ', () => {

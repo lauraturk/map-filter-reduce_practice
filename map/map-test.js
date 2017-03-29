@@ -66,10 +66,13 @@ describe('map tests', () => {
   it('should transform a large object into an array of objects', () => {
     let largeObject = {key1: {name: 'jhun', location: 'CA'}, key2: {name: 'brenna', location: 'MN'}, key3:{name: 'louisa', location: 'CO'}}
 
+    let array = Object.keys(largeObject).map(key => {
+      let arr = largeObject[key]
+      arr.id = key;
+      return arr;
+    })
 
-    });
-
-    expect(array).length.equal(3)
+    expect(array.length).to.equal(3)
     expect(array).to.deep.equal([{id: 'key1', name: 'jhun', location: 'CA'}, {id: 'key2', name: 'brenna', location: 'MN'}, { id: 'key3', name: 'louisa', location: 'CO'}])
   });
 });
